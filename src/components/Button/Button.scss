@@ -1,0 +1,33 @@
+.Button {
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}
+
+.Button.primary {
+    background: var(--g-primary-10);
+}
+
+.Button.secondary {
+    border: 1px solid var(--c-intermediate-5);
+}
+
+.Button.tertiary {
+    border: 1px solid var(--c-neutral-50);
+}
+
+.Button.small {
+    padding: 9px 16px;
+}
+
+.Button.medium {
+    padding: 12px 24px;
+}
+
+.Button.large {
+    padding: 16px 32px;
+}

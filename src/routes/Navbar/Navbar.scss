@@ -1,0 +1,36 @@
+.Navbar {
+    @mixin navbar {
+        width: 100%;
+        padding: 24px;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--c-neutral-70);
+
+        .weeev-logo {
+            width: 80px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            &:active {
+                opacity: 0.6;
+            }
+        }
+    }
+    
+    .normal-navbar {
+        @include navbar;
+        position: fixed;
+        z-index: 2;
+    }
+    
+    .ghost-navbar {
+        @include navbar;
+        opacity: 0;
+    
+        .weeev {
+            width: 80px;
+        }
+    }
+}

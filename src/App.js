@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+
+import { Navbar } from './routes/Navbar/Navbar.component';
+import { LandingPage } from './routes/LandingPage/LandingPage.component';
+import { Me } from './routes/Me/Me.component';
+import { CreateIdea } from './routes/CreateIdea/CreateIdea.component';
+import { Settings } from './routes/Settings/Settings.component';
+import { Idea } from './routes/Idea/Idea.component';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App bg-n-white">
+        <Routes>
+          <Route path='/' element={<Navbar />} >
+            <Route index element={<LandingPage />} />
+            <Route path='me/' element={<Me />} />
+            <Route path='create-idea/' element={<CreateIdea />} />
+            <Route path='settings/' element={<Settings />} />
+            <Route path='idea/:ideaId' element={<Idea />} />
+            <Route path='idea/' element={<h1>nothing here</h1>} />
+          </Route>
+        </Routes>
     </div>
   );
 }
