@@ -1,36 +1,40 @@
-.Navbar {
-    @mixin navbar {
-        width: 100%;
-        padding: 24px;
+@mixin navbar {
+    width: 100%;
+    padding: 24px;
+    justify-content: center;
+    border-bottom: 1px solid var(--c-neutral-70);
+
+    .wrapper {
+        flex: 1;
+        max-width: 420px;
         justify-content: space-between;
-        border-bottom: 1px solid var(--c-neutral-70);
+    }
 
-        .weeev-logo {
-            width: 80px;
-            cursor: pointer;
+    .weeev-logo {
+        width: 80px;
+        cursor: pointer;
 
-            &:hover {
-                opacity: 0.8;
-            }
+        &:hover {
+            opacity: 0.8;
+        }
 
-            &:active {
-                opacity: 0.6;
-            }
+        &:active {
+            opacity: 0.6;
         }
     }
-    
-    .normal-navbar {
-        @include navbar;
-        position: fixed;
-        z-index: 2;
-    }
-    
-    .ghost-navbar {
-        @include navbar;
-        opacity: 0;
-    
-        .weeev {
-            width: 80px;
-        }
+}
+
+.Navbar {
+    @include navbar;
+    position: fixed;
+    z-index: 2;
+}
+
+.ghost-navbar {
+    @include navbar;
+    opacity: 0;
+
+    .weeev {
+        width: 80px;
     }
 }

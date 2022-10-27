@@ -4,13 +4,18 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 body, h1, h2, h3, h4, h5, h6, p { margin: 0; }
-input, button, textarea, select { font: inherit; }
 body, #root, .App { min-height: 100vh; }
+input, button, textarea, select {
+  font: inherit;
+  border: none;
+  outline: none;
+}
 img {
   display: block;
   align-self: center;
 }
 button {
+  display: block;
   background: none;
 	border: none;
 	padding: 0;
@@ -85,9 +90,19 @@ button {
   --s-xs: 4px;
   --s-s: 8px;
   --s-m: 16px;
-  --s-g: 24px;
-  --s-xg: 32px;
-  --s-xxg: 64px;
+  --s-l: 24px;
+  --s-xl: 32px;
+  --s-xxl: 64px;
+
+  /* Borders */
+
+  --b-s: 4px;
+  --b-m: 8px;
+  --b-l: 12px;
+
+  /* Transitions */
+
+  --t-10: 200ms ease all;
 }
 
 
@@ -103,139 +118,168 @@ button {
 .flex-xs { @include flex; gap: var(--s-xs); }
 .flex-s { @include flex; gap: var(--s-s); }
 .flex-m { @include flex; gap: var(--s-m); }
-.flex-g { @include flex; gap: var(--s-g); }
-.flex-xg { @include flex; gap: var(--s-xg); }
-.flex-xxg { @include flex; gap: var(--s-xxg); }
+.flex-g { @include flex; gap: var(--s-l); }
+.flex-xg { @include flex; gap: var(--s-xl); }
+.flex-xxg { @include flex; gap: var(--s-xxl); }
+.width-100 { width: 100%; }
+.page {
+  flex: 1;
+  max-width: 368px;
+  margin: 0 24px;
+}
 
 /* Font format */
 
-.f-display {
+@mixin font-display {
   font-size: 60px;
   font-weight: 800;
   line-height: 80px;
 }
-.f-headline-desktop-1 {
+@mixin font-headline-desktop-1 {
   font-size: 48px;
   font-weight: 800;
   line-height: 72px;
 }
-.f-headline-desktop-2 {
+@mixin font-headline-desktop-2 {
   font-size: 34px;
   font-weight: 700;
   line-height: 48px;
 }
-.f-headline-desktop-3 {
+@mixin font-headline-desktop-3 {
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
 }
-.f-headline-desktop-4 {
+@mixin font-headline-desktop-4 {
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;
 }
-.f-headline-desktop-5 {
+@mixin font-headline-desktop-5 {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
 }
-.f-headline-desktop-6 {
+@mixin font-headline-desktop-6 {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
 }
-.f-headline-mobile-1 {
+@mixin font-headline-mobile-1 {
   font-size: 34px;
   font-weight: 800;
   line-height: 48px;
 }
-.f-headline-mobile-2 {
+@mixin font-headline-mobile-2 {
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
 }
-.f-headline-mobile-3 {
+@mixin font-headline-mobile-3 {
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;
 }
-.f-headline-mobile-4 {
+@mixin font-headline-mobile-4 {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
 }
-.f-headline-mobile-5 {
+@mixin font-headline-mobile-5 {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
 }
-.f-headline-mobile-6 {
+@mixin font-headline-mobile-6 {
   font-size: 12px;
   font-weight: 700;
   line-height: 16px;
 }
-.f-body-1 {
+@mixin font-body-1 {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
 }
-.f-body-2 {
+@mixin font-body-2 {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
 }
-.f-caption-1 {
+@mixin font-caption-1 {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
 }
-.f-caption-2 {
+@mixin font-caption-2 {
   font-size: 11px;
   font-weight: 400;
   line-height: 16px;
 }
-.f-footer-1 {
+@mixin font-footer-1 {
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
 }
-.f-button-1 {
+@mixin font-button-1 {
   font-size: 16px;
   font-weight: 700;
   line-height: 16px;
 }
-.f-button-2 {
+@mixin font-button-2 {
   font-size: 14px;
   font-weight: 700;
   line-height: 14px;
 }
-.f-link-1 {
+@mixin font-link-1 {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   text-decoration: underline;
 }
-.f-link-2 {
+@mixin font-link-2 {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
   text-decoration: underline;
 }
-.f-link-3 {
+@mixin font-link-3 {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-decoration: underline;
 }
-.f-link-4 {
+@mixin font-link-4 {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-decoration: underline;
 }
+.font-display { @include font-display; }
+.font-headline-desktop-1 { @include font-headline-desktop-1; }
+.font-headline-desktop-2 { @include font-headline-desktop-2; }
+.font-headline-desktop-3 { @include font-headline-desktop-3; }
+.font-headline-desktop-4 { @include font-headline-desktop-4; }
+.font-headline-desktop-5 { @include font-headline-desktop-5; }
+.font-headline-desktop-6 { @include font-headline-desktop-6; }
+.font-headline-mobile-1 { @include font-headline-mobile-1; }
+.font-headline-mobile-2 { @include font-headline-mobile-2; }
+.font-headline-mobile-3 { @include font-headline-mobile-3; }
+.font-headline-mobile-4 { @include font-headline-mobile-4; }
+.font-headline-mobile-5 { @include font-headline-mobile-5; }
+.font-headline-mobile-6 { @include font-headline-mobile-6; }
+.font-body-1 { @include font-body-1; }
+.font-body-2 { @include font-body-2; }
+.font-caption-1 { @include font-caption-1; }
+.font-caption-2 { @include font-caption-2; }
+.font-footer-1 { @include font-footer-1; }
+.font-button-1 { @include font-button-1; }
+.font-button-2 { @include font-button-2; }
+.font-link-1 { @include font-link-1 }
+.font-link-2 { @include font-link-2; }
+.font-link-3 { @include font-link-3; }
+.font-link-4 { @include font-link-4; }
 
 /* Font color */
-
 .color-p-5 { color: var(--c-primary-5); }
 .color-p-10 { color: var(--c-primary-10); }
 .color-p-20 { color: var(--c-primary-20); }
@@ -311,9 +355,9 @@ button {
 
 /* Borders */
 
-.border-s { border-radius: 4px; }
-.border-m { border-radius: 8px; }
-.border-g { border-radius: 12px; }
+.border-s { border-radius: var(--b-s); }
+.border-m { border-radius: var(--b-m); }
+.border-l { border-radius: var(--b-l); }
 
 /* Effects */
 
@@ -328,3 +372,7 @@ button {
 }
 .shadow-5 { box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05); }
 .shadow-10 { box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); }
+
+/* Transitions */
+
+.transition-10 { transition: var(--t-10); }

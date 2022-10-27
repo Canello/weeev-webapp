@@ -1,0 +1,71 @@
+@import '../../index.scss';
+
+.Input {
+    position: relative;
+}
+
+.Input .box {
+    height: 40px;
+    width: 100%;
+    padding: 10px 16px;
+    color: var(--c-n-10);
+    background-color: var(--c-neutral-70);
+    transition: var(--t-10);
+    border-radius: var(--b-m);
+
+    &::placeholder {
+        @include font-body-2;
+    }
+
+    &:focus {
+        background-color: var(--c-secondary-40);
+
+        &::placeholder {
+            color: var(--c-secondary-5);
+        }
+    }
+}
+
+.Input .box-error {
+    background-color: var(--c-warning-40);
+
+    &::placeholder {
+        color: var(--c-warning-10);
+    }
+}
+
+.Input .label {
+    @include font-body-2;
+
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    border-radius: var(--b-s);
+    color: var(--c-neutral-30);
+    transition: var(--t-10);
+}
+
+.Input .label-filled {
+    @include font-caption-1;
+
+    top: -7px;
+    padding: 1px 4px;
+    background-color: var(--c-neutral-70);
+}
+
+.Input .label-error {
+    color: var(--c-warning-10);
+    background-color: var(--c-warning-40);
+}
+
+.Input .box:focus ~ .label {
+    color: var(--c-secondary-5);
+}
+
+.Input .box:focus ~ .label-filled {
+    background-color: var(--c-secondary-40);
+}
+
+.Input .no-background {
+    background: none;
+}

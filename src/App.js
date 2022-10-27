@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
+import './App.scss';
+
 import { Navbar } from './routes/Navbar/Navbar.component';
 import { LandingPage } from './routes/LandingPage/LandingPage.component';
 import { Me } from './routes/Me/Me.component';
@@ -9,7 +11,7 @@ import { Idea } from './routes/Idea/Idea.component';
 
 function App() {
   return (
-    <div className="App bg-n-white">
+    <div className='App bg-n-white flex'>
         <Routes>
           <Route path='/' element={<Navbar />} >
             <Route index element={<LandingPage />} />
