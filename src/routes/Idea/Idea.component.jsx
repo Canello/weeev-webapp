@@ -1,9 +1,8 @@
-import './Idea.scss';
+import { IdeaForms } from "./IdeaForms/IdeaForms.component";
+import { MyIdea } from "./MyIdea/MyIdea.component";
 
 export const Idea = () => {
-    return (
-        <div className='Idea'>
+    const isCreator = true;
 
-        </div>
-    );
+    return isCreator ? <MyIdea /> : <IdeaForms />;
 }

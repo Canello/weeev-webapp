@@ -6,7 +6,6 @@ import { Button } from '../../components/Button/Button.component';
 
 export const CreateIdea = () => {
     const [ ideaName, setIdeaName ] = useState('');
-    const handleIdeaNameChange = (event) => setIdeaName(event.target.value);
 
     return (
         <div className='CreateIdea page'>
@@ -15,7 +14,7 @@ export const CreateIdea = () => {
             <Spacer dir='y' size='m' />
             <h1 className='font-headline-mobile-4 color-n-20'>Eu quero...</h1>
             <Spacer dir='y' size='xs' />
-            <Input value={ideaName} onChange={handleIdeaNameChange} placeholder='...fazer alguma coisa' />
+            <Input value={ideaName} setValue={setIdeaName} placeholder='...fazer alguma coisa' />
             <Spacer dir='y' size='m' />
             <Button className='width-100' label='Criar ideia' variant='primary' size='large' />
         </div>

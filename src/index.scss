@@ -112,21 +112,17 @@ button {
 
 /* Display */
 
-@mixin flex { display: flex; }
-.flex { @include flex; }
-.flex-xxs { @include flex; gap: var(--s-xxs); }
-.flex-xs { @include flex; gap: var(--s-xs); }
-.flex-s { @include flex; gap: var(--s-s); }
-.flex-m { @include flex; gap: var(--s-m); }
-.flex-g { @include flex; gap: var(--s-l); }
-.flex-xg { @include flex; gap: var(--s-xl); }
-.flex-xxg { @include flex; gap: var(--s-xxl); }
+.flex { display: flex; }
+.flex-1 { flex: 1; }
 .width-100 { width: 100%; }
 .page {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 48px);
   max-width: 368px;
   margin: 0 24px;
 }
+.text-align-center { text-align: center; }
 
 /* Font format */
 
@@ -234,25 +230,41 @@ button {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 @mixin font-link-2 {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
-  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 @mixin font-link-3 {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 @mixin font-link-4 {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .font-display { @include font-display; }
 .font-headline-desktop-1 { @include font-headline-desktop-1; }

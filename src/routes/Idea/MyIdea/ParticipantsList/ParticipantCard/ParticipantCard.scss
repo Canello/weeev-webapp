@@ -1,0 +1,9 @@
+.ParticipantCard + .ParticipantCard {
+    margin-top: 16px;
+}
+
+.ParticipantCard .info-container {
+    width: 160px;
+    display: flex;
+    align-items: center;
+}
