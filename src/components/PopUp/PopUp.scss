@@ -1,0 +1,28 @@
+.PopUp {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+.PopUp .pop-up-content-container {
+    padding: var(--s-xl);
+    border-radius: var(--b-m);
+    z-index: 11;
+}
+
+.PopUp .clickable-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}

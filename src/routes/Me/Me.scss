@@ -1,0 +1,18 @@
+.Me .create-idea-button {
+    width: 82.5%;
+}
+
+.Me .settings-button {
+    width: calc(17.5% - var(--s-m));
+}
+
+.Me .horizontal-line {
+    width: 100%;
+    border-bottom: 1px solid var(--c-neutral-60);
+}
+
+.Me .placeholder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

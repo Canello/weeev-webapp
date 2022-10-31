@@ -15,14 +15,16 @@ const ICON = {
 const BACKGROUND = {
     'primary': 'gradient-p-10',
     'secondary': '',
-    'tertiary': 'bg-n-80',
+    'tertiary': 'tertiary',
     'primary-solo': '',
     'secondary-solo': ''
 }
 
-export const IconButton = ({ variant='primary' }) => {
+export const IconButton = ({ variant='primary', ...otherProps }) => {
+    const className = otherProps.className ?? '';
+
     return (
-        <div className={`IconButton border-m transition-10 ${BACKGROUND[variant]}`}>
+        <div className={`IconButton border-m transition-10 ${BACKGROUND[variant]} ${className}`}>
             <img src={ICON[variant]} />
         </div>
     );

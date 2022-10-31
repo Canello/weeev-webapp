@@ -5,14 +5,11 @@ import './ParticipantsList.scss';
 
 import { ParticipantCard } from './ParticipantCard/ParticipantCard.component';
 
-const participants = [];
-for (let i = 0; i < 25; i++) { participants.push(i) }
-
-export const ParticipantsList = () => {
+export const ParticipantsList = ({ data }) => {
     const [ cards, setCards ] = useState([]);
 
     useEffect(() => {
-        const cardsToSet = participants.map(participant => <ParticipantCard key={participant} />);
+        const cardsToSet = data.map(participant => <ParticipantCard key={participant} />);
         setCards(cardsToSet);
     }, []);
 

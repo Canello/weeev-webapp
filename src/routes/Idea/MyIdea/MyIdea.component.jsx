@@ -3,6 +3,9 @@ import './MyIdea.scss';
 import { ShareableLink } from "../../../components/ShareableLink/ShareableLink.component";
 import { Spacer } from "../../../components/Spacer/Spacer.component";
 import { ParticipantsList } from './ParticipantsList/ParticipantsList.component';
+import NobodyHere from '../../../assets/images/nobody-here.png';
+
+const participants = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 
 export const MyIdea = () => {
     return (
@@ -20,7 +23,17 @@ export const MyIdea = () => {
             <Spacer dir='y' size='xs' />
             <div className='horizontal-line' />
             <Spacer dir='y' size='m' />
-            <ParticipantsList />
+            {
+                participants.length > 0 ?
+                <ParticipantsList data={participants} />
+                :
+                <div className='placeholder-container'>
+                    <Spacer dir='y' size='xxl' />
+                    <img className='nothing-here' src={NobodyHere} />
+                    <Spacer dir='y' size='m' />
+                    <span className='font-body-2 color-n-30 text-align-center'>Compartilhe o link para saber quem quer participar da ideia.</span>
+                </div>
+            }
             <Spacer dir='y' size='xl' />
         </div>
     );

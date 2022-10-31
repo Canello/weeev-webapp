@@ -14,3 +14,8 @@
         opacity: 0.6;
     }
 }
+
+.IconButton.tertiary {
+    border: 1px solid var(--c-neutral-60);
+    background-color: var(--c-neutral-80);
+}

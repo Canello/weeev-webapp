@@ -1,0 +1,25 @@
+.IdeaCard {
+    cursor: pointer;
+    transition: var(--t-10);
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}
+
+.IdeaCard + .IdeaCard {
+    margin-top: var(--s-m);
+}
+
+.IdeaCard .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.IdeaCard .date-container {
+    align-items: center;   
+}

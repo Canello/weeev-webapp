@@ -1,8 +1,16 @@
+import { useState } from 'react';
+
 import { Button } from '../../components/Button/Button.component';
+import { PopUp } from '../../components/PopUp/PopUp.component';
 import { Spacer } from '../../components/Spacer/Spacer.component';
 import { StepByStep } from './StepByStep/StepByStep.component';
 
 export const LandingPage = () => {
+    const [ showLoginPopUp, setShowLoginPopUp ] = useState(true);
+    const [ showSuccessPopUp, setShowSuccessPopUp ] = useState(true);
+    const closeLoginPopUp = () => setShowLoginPopUp(false);
+    const closeSuccessPopUp = () => setShowSuccessPopUp(false);
+
     return (
         <div className='LandingPage page'>
             <Spacer dir='y' size = 'xl' />
@@ -13,6 +21,7 @@ export const LandingPage = () => {
             <Button className='width-100' label='Criar uma ideia' variant='primary' size='large' />
             <Spacer dir='y' size='m' />
             <Button className='width-100' label='Entrar com Google' variant='secondary' size='large' />
+            <PopUp />
         </div>
     );
 }
