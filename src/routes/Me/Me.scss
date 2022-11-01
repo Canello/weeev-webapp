@@ -4,15 +4,10 @@
 
 .Me .settings-button {
     width: calc(17.5% - var(--s-m));
+    min-width: 40px;
 }
 
 .Me .horizontal-line {
     width: 100%;
     border-bottom: 1px solid var(--c-neutral-60);
-}
-
-.Me .placeholder-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }

@@ -9,7 +9,7 @@ export const ShareableLink = () => {
                 <img src={CopyGradient} />
             </div>
             <div className='link-container'>
-                <span className='font-link-4 color-i-5'>https://weeev.cc/?ideaId=9712he193hr3asdsdadadad</span>
+                <span className='font-link-4 color-i-5 word-break'>https://weeev.cc/9712he193hr3asdsdadadajsdadjasiojdadajsdau</span>
             </div>
         </div>
     );

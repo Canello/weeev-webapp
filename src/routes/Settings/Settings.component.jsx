@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Spacer } from '../../components/Spacer/Spacer.component';
 import { Input } from '../../components/Input/Input.component';
@@ -6,6 +7,9 @@ import { Button } from '../../components/Button/Button.component';
 
 export const Settings = () => {
     const [ name, setName ] = useState('');
+
+    const navigate = useNavigate();
+    const goToMe = () => navigate('/me');
 
     return (
         <div className='Settings page'>
@@ -15,9 +19,9 @@ export const Settings = () => {
             <Input className='width-100' value={name} setValue={setName} label='Seu nome' />
             <Spacer dir='y' size='m' />
             <div className='flex flex-1'>
-                <Button className='flex-1' label='Cancelar' variant='tertiary' size='medium' />
+                <Button className='flex-1' label='Cancelar' variant='tertiary' size='medium' onClick={goToMe} />
                 <Spacer dir='x' size='m' />
-                <Button className='flex-1' label='Editar' variant='primary' size='medium' />
+                <Button className='flex-1' label='Editar' variant='primary' size='medium' onClick={goToMe} />
             </div>
         </div>
     );

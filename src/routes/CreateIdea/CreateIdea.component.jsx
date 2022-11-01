@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Spacer } from '../../components/Spacer/Spacer.component';
 import { Input } from '../../components/Input/Input.component';
@@ -6,6 +7,9 @@ import { Button } from '../../components/Button/Button.component';
 
 export const CreateIdea = () => {
     const [ ideaName, setIdeaName ] = useState('');
+
+    const navigate = useNavigate();
+    const goToIdea = () => navigate('/idea/0824jf90fi3904');
 
     return (
         <div className='CreateIdea page'>
@@ -16,7 +20,7 @@ export const CreateIdea = () => {
             <Spacer dir='y' size='xs' />
             <Input value={ideaName} setValue={setIdeaName} placeholder='...fazer alguma coisa' />
             <Spacer dir='y' size='m' />
-            <Button className='width-100' label='Criar ideia' variant='primary' size='large' />
+            <Button className='width-100' label='Criar ideia' variant='primary' size='large' onClick={goToIdea} />
         </div>
     );
 }

@@ -1,0 +1,19 @@
+.StepByStep .step {
+    display: flex;
+    align-items: center;
+}
+
+.StepByStep .icon-container {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: var(--c-primary-20);
+}
+
+.StepByStep .margin-left {
+    margin-left: 15px;
+}

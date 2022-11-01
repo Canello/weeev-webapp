@@ -13,6 +13,8 @@
 }
 
 .PopUp .pop-up-content-container {
+    max-width: 320px;
+    width: 100%;
     padding: var(--s-xl);
     border-radius: var(--b-m);
     z-index: 11;
@@ -25,4 +27,8 @@
     height: 100%;
     width: 100%;
     z-index: 10;
+}
+
+.PopUp.hide {
+    display: none;
 }
