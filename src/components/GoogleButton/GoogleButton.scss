@@ -1,0 +1,15 @@
+.GoogleButton {
+    position: relative;
+    width: 100%;
+}
+
+.GoogleButton .google-logo {
+    width: 18px;
+}
+
+.GoogleButton .google-login-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+}

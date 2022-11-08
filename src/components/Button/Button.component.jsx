@@ -14,7 +14,7 @@ const FONT_FORMAT = {
 
 export const Button = ({ className='', label, variant='primary', size='medium', children, ...otherProps }) => {
     return (
-        <button className={`Button border-m transition-10 ${variant} ${size} ${className}`} {...otherProps}>
+        <button className={`Button border-m button-states-10 transition-10 ${variant} ${size} ${className}`} {...otherProps}>
             <span className={`${FONT_COLOR[variant]} ${FONT_FORMAT[size]}`}>{label}</span>
             {children}
         </button>
