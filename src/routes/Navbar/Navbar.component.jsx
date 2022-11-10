@@ -14,7 +14,9 @@ export const Navbar = () => {
         <>
             <nav className='Navbar glass-10 shadow-5 flex'>
                 <div className='wrapper flex'>
-                    <img className='weeev-logo transition-10' src={weeevLogo} onClick={goToLandingPage} />
+                    <div className='weeev-logo-container button-states-10 transition-10' onClick={goToLandingPage}>
+                        <img className='weeev-logo' src={weeevLogo} />
+                    </div>
                     <Button label='Minhas ideias' variant='secondary' size='small' onClick={goToMe} />
                 </div>
             </nav>
@@ -22,7 +24,9 @@ export const Navbar = () => {
             {/* Invisible navbar copy to push elements that are below navbar */}
             <div className='ghost-navbar'>
                 <div className='wrapper flex'>
-                    <img className='weeev-logo' src={weeevLogo} />
+                    <div className='weeev-logo-container'>
+                        <img className='weeev-logo' src={weeevLogo} />
+                    </div>
                     <Button label='Minhas ideias' variant='secondary' size='small' />
                 </div>
             </div>

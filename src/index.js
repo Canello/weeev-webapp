@@ -1,16 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+
+import './index.scss';
+
+import App from './App';
+import { UserTokenProvider } from './contexts/UserToken.context';
+import { UserProvider } from './contexts/User.context';
+import { MyIdeasProvider } from './contexts/MyIdeas.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <UserTokenProvider>
+    <UserProvider>
+    <MyIdeasProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </MyIdeasProvider>
+    </UserProvider>
+    </UserTokenProvider>
   </React.StrictMode>
 );
 

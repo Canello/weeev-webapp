@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './Me.scss';
@@ -7,12 +8,12 @@ import { Button } from '../../components/Button/Button.component';
 import { IconButton } from '../../components/IconButton/IconButton.component';
 import { IdeasList } from './IdeasList/IdeasList.component';
 import { NothingHerePlaceholder } from './NothingHerePlaceholder/NothingHerePlaceholder.component';
+import { MyIdeasContext } from '../../contexts/MyIdeas.context';
 
 import SettingNeutral50 from '../../assets/icons/setting-neutral-50.svg';
 
-const ideas = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
-
 export const Me = () => {
+    const { myIdeas } = useContext(MyIdeasContext);
     const navigate = useNavigate();
     const goToSettings = () => navigate('/settings');
     const goToCreateIdea = () => navigate('/create-idea');
@@ -30,7 +31,7 @@ export const Me = () => {
             <Spacer dir='y' size='s' />
             <div className='horizontal-line' />
             <Spacer dir='y' size='m' />
-            {ideas.length > 0 ? <IdeasList data={ideas} /> : <NothingHerePlaceholder />}
+            {myIdeas.length > 0 ? <IdeasList data={myIdeas} /> : <NothingHerePlaceholder />}
             <Spacer dir='y' size='xl' />
         </div>
     );

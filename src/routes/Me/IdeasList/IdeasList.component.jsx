@@ -6,7 +6,7 @@ export const IdeasList = ({ data }) => {
     const [ cards, setCards ] = useState();
 
     useEffect(() => {
-        const cardsToSet = data.map(idea => <IdeaCard key={idea} />);
+        const cardsToSet = data.map(idea => <IdeaCard key={idea.id} idea={idea} />);
         setCards(cardsToSet);
     }, [data]);
 

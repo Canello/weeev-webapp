@@ -1,3 +1,4 @@
+import { useContext, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import './App.scss';
@@ -27,3 +28,7 @@ function App() {
 }
 
 export default App;
+
+// !!!!!!!!!! PRÓXIMO PASSO: CONECTAR FRONT-END COM BACK-END !!!!!!!!!
+// !!!!! CONECTANDO IDEA ROUTE !!!!!!!!
+// !!!!! ARMAZENAR USER TOKEN NO LOCAL STORAGE !!!!!!!!

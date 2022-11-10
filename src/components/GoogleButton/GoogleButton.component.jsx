@@ -1,10 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import './GoogleButton.scss';
 
 import { Button } from "../Button/Button.component";
 import { Spacer } from '../Spacer/Spacer.component';
-import { getNewId } from '../../utils/getNewId';
+import { getNewId } from '../../utils/functions/getNewId';
+import { useFetch } from "../../hooks/useFetch";
+import { getUserToken } from "../../services/users.services";
+import { UserTokenContext } from "../../contexts/UserToken.context";
 
 import GoogleLogo from '../../assets/images/google-logo.svg';
 
@@ -12,12 +15,17 @@ import GoogleLogo from '../../assets/images/google-logo.svg';
 export const GoogleButton = () => {
     const id = 'google-login' + getNewId();
     const googleLogin = useRef();
+    const [ requestUserToken ] = useFetch();
+    const { setUserToken } = useContext(UserTokenContext);
 
-    const handleCredentialResponse = (response) => {
-        console.log(response.credential);
+    const handleCredentialResponse = async (response) => {
+        const googleToken = response.credential;
+        requestUserToken(getUserToken(googleToken), null, (res) => {
+            setUserToken(res);
+        });
     }
 
-    useEffect(() => {
+    const initializeGoogleLogin = () => {
         google.accounts.id.initialize({
             client_id: "890599212995-otdqmbdccnooe5ijgjvl3cbneeul4j52.apps.googleusercontent.com",
             callback: handleCredentialResponse
@@ -30,6 +38,10 @@ export const GoogleButton = () => {
                 width: `${googleLogin.current.offsetWidth}px`
             }
         );
+    }
+
+    useEffect(() => {
+        initializeGoogleLogin();
     }, []);
 
     // Botão de login com Google customizado

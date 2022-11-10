@@ -10,17 +10,16 @@
         justify-content: space-between;
     }
 
+    .weeev-logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+        cursor: pointer;
+    }
+
     .weeev-logo {
         width: 80px;
-        cursor: pointer;
-
-        &:hover {
-            opacity: 0.8;
-        }
-
-        &:active {
-            opacity: 0.6;
-        }
     }
 }
 

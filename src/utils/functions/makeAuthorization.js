@@ -1,0 +1,1 @@
+export const makeAuthorization = (token) => `Bearer ${token}`;
