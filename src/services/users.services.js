@@ -29,3 +29,21 @@ export const getUser = (userToken) => async () => {
     if (resJson.status === 'ok') return resJson.data.user;
     throw Error(resJson.data.error);
 }
+
+export const editUser = (userToken, fullName) => async () => {
+    const res = await fetch(apiAddress + 'users/', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: makeAuthorization(userToken)
+        },
+        body: JSON.stringify({
+            data: {
+                fullName: fullName
+            }
+        })
+    });
+    const resJson = await res.json();
+    if (resJson.status === 'ok') return resJson.data.user;
+    throw Error(resJson.data.error);
+}

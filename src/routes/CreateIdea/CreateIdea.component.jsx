@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Spacer } from '../../components/Spacer/Spacer.component';
 import { Input } from '../../components/Input/Input.component';
 import { Button } from '../../components/Button/Button.component';
+import { useFetch } from '../../hooks/useFetch.hook';
+import { UserTokenContext } from '../../contexts/UserToken.context';
+import { createIdea } from '../../services/ideas.services';
 
 export const CreateIdea = () => {
-    const [ ideaName, setIdeaName ] = useState('');
-
+    const { userToken } = useContext(UserTokenContext);
     const navigate = useNavigate();
-    const goToIdea = () => navigate('/idea/0824jf90fi3904');
+    const goToIdea = (ideaId) => navigate('/idea/' + ideaId);
+    
+    const [ title, setTitle ] = useState('');
+    const [ requestCreateIdea, idea, isFetchingIdea, createIdeaError ] = useFetch();
+
+    const onSubmit = () => {
+        requestCreateIdea(createIdea(userToken, title), null, (res) => goToIdea(res.id));
+    }
 
     return (
         <div className='CreateIdea page'>
@@ -18,9 +27,9 @@ export const CreateIdea = () => {
             <Spacer dir='y' size='m' />
             <h1 className='font-headline-mobile-4 color-n-20'>Eu quero...</h1>
             <Spacer dir='y' size='xs' />
-            <Input value={ideaName} setValue={setIdeaName} placeholder='...fazer alguma coisa' />
+            <Input value={title} setValue={setTitle} placeholder='...fazer alguma coisa' />
             <Spacer dir='y' size='m' />
-            <Button className='width-100' label='Criar ideia' variant='primary' size='large' onClick={goToIdea} />
+            <Button className='width-100' label='Criar ideia' variant='primary' size='large' onClick={onSubmit} />
         </div>
     );
 }

@@ -1,0 +1,16 @@
+.LoadingSpinner {
+    border-radius: 100%;
+    border: 5px solid var(--c-primary-40);
+    border-bottom-color: var(--c-intermediate-10);
+    animation: 1.25s linear infinite spinner;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

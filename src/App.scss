@@ -2,3 +2,18 @@
     flex-direction: column;
     align-items: center;
 }
+
+.InitialLoadingScreen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.InitialLoadingScreen .weeev-icon {
+    position: absolute;
+    height: 88px;
+    width: 88px;
+}

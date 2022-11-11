@@ -9,7 +9,8 @@ export const getMyIdeas = (userToken) => async () => {
         }
     });
     const resJson = await res.json();
-    return resJson.data.ideas;
+    if (resJson.status === 'ok') return resJson.data.ideas;
+    throw Error(resJson.data.error);
 }
 
 export const getIdea = (userToken, ideaId) => async () => {
@@ -20,7 +21,8 @@ export const getIdea = (userToken, ideaId) => async () => {
         }
     });
     const resJson = await res.json();
-    return resJson.data.idea;
+    if (resJson.status === 'ok') return resJson.data.idea;
+    throw Error(resJson.data.error);
 }
 
 export const getParticipants = (userToken, ideaId) => async () => {
@@ -31,5 +33,24 @@ export const getParticipants = (userToken, ideaId) => async () => {
         }
     });
     const resJson = await res.json();
-    return resJson.data.participants;
+    if (resJson.status === 'ok') return resJson.data.participants;
+    throw Error(resJson.data.error);
+}
+
+export const createIdea = (userToken, title) => async () => {
+    const res = await fetch(apiAddress + 'ideas/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: makeAuthorization(userToken)
+        },
+        body: JSON.stringify({
+            data: {
+                title: title
+            }
+        })
+    });
+    const resJson = await res.json();
+    if (resJson.status === 'ok') return resJson.data.idea;
+    throw Error(resJson.data.error);
 }

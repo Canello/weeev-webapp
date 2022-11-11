@@ -5,7 +5,7 @@ import './GoogleButton.scss';
 import { Button } from "../Button/Button.component";
 import { Spacer } from '../Spacer/Spacer.component';
 import { getNewId } from '../../utils/functions/getNewId';
-import { useFetch } from "../../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch.hook";
 import { getUserToken } from "../../services/users.services";
 import { UserTokenContext } from "../../contexts/UserToken.context";
 
@@ -20,7 +20,7 @@ export const GoogleButton = () => {
 
     const handleCredentialResponse = async (response) => {
         const googleToken = response.credential;
-        requestUserToken(getUserToken(googleToken), null, (res) => {
+        if (googleToken) requestUserToken(getUserToken(googleToken), null, (res) => {
             setUserToken(res);
         });
     }

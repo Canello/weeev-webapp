@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 import { UserTokenContext } from "./UserToken.context";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../hooks/useFetch.hook";
 import { getMyIdeas } from "../services/ideas.services";
 
 export const MyIdeasContext = createContext([]);
