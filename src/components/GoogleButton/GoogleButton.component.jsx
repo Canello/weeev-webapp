@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import './GoogleButton.scss';
 
@@ -17,11 +18,14 @@ export const GoogleButton = () => {
     const googleLogin = useRef();
     const [ requestUserToken ] = useFetch();
     const { setUserToken } = useContext(UserTokenContext);
+    const navigate = useNavigate();
+    const goToMe = () => navigate('/me');
 
     const handleCredentialResponse = async (response) => {
         const googleToken = response.credential;
         if (googleToken) requestUserToken(getUserToken(googleToken), null, (res) => {
             setUserToken(res);
+            goToMe();
         });
     }
 
@@ -45,7 +49,7 @@ export const GoogleButton = () => {
     }, []);
 
     // Botão de login com Google customizado
-    // Feito colocando botão oficial do Google por cima, e setando opacity: 0
+    // Colocando botão oficial do Google por cima e setando opacity: 0
     return (
         <div className='GoogleButton button-states-10 transition-10'>
             <Button className='width-100' label='Entrar com Google' variant='secondary' size='medium'>

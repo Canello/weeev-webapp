@@ -1,9 +1,9 @@
 .ShareableLink {
+    position: relative;
     display: flex;
     align-items: stretch;
     border: 1px solid var(--c-neutral-60);
     border-radius: var(--b-m);
-    overflow: hidden;
 }
 
 .ShareableLink .copy-container {
@@ -12,29 +12,30 @@
     justify-content: center;
     flex-shrink: 0;
     width: 72px;
-    border-right: 1px solid var(--c-neutral-60);
+    border-left: 1px solid var(--c-neutral-60);
     background-color: var(--c-neutral-80);
-    cursor: pointer;
-    transition: var(--t-10);
-
-    &:hover {
-        opacity: 0.8;
-    }
-
-    &:active {
-        opacity: 0.6;
-    }
+    border-top-right-radius: var(--b-m);
+    border-bottom-right-radius: var(--b-m);
 }
 
 .ShareableLink .link-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     flex: 1;
-    padding: 4px 16px;
+    padding: 8px 16px;
 }
 
-.ShareableLink .word-break {
-    word-break: break-all;
-    min-width: 0;
+.ShareableLink .tip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: -16px;
+    padding: var(--s-xs) var(--s-s);
+    border-radius: var(--b-s);
+}
+
+.ShareableLink .hide {
+    opacity: 0;
 }

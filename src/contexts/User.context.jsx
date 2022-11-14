@@ -13,6 +13,7 @@ export const UserProvider = ({children}) => {
     const updateUser = () => {
         if (userToken) requestUser(getUser(userToken), null, (res) => setUser(res));
     }
+    const clearUser = () => setUser(null);
 
     useEffect(() => {
         updateUser();
@@ -22,7 +23,8 @@ export const UserProvider = ({children}) => {
         user,
         setUser,
         isFetchingUser,
-        updateUser
+        updateUser,
+        clearUser
     }
 
     return (

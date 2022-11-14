@@ -54,3 +54,22 @@ export const createIdea = (userToken, title) => async () => {
     if (resJson.status === 'ok') return resJson.data.idea;
     throw Error(resJson.data.error);
 }
+
+export const participate = (ideaId, fullName, instagram, phoneNumber) => async () => {
+    const res = await fetch(apiAddress + 'ideas/' + ideaId + '/participants', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            data: {
+                fullName: fullName,
+                instagram: instagram,
+                phoneNumber: phoneNumber
+            }
+        })
+    });
+    const resJson = await res.json();
+    if (resJson.status === 'ok') return resJson.status;
+    throw Error(resJson.data.error);
+}

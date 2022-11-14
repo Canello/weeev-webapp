@@ -43,6 +43,7 @@
     border-radius: var(--b-s);
     color: var(--c-neutral-30);
     transition: var(--t-10);
+    pointer-events: none;
 }
 
 .Input .label-filled {

@@ -1,11 +1,15 @@
-import { Outlet } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 import './Navbar.scss';
-import weeevLogo from '../../assets/images/weeev.png';
+
 import { Button } from '../../components/Button/Button.component';
+import { UserContext } from '../../contexts/User.context';
+
+import weeevLogo from '../../assets/images/weeev.png';
 
 export const Navbar = () => {
+    const { user } = useContext(UserContext);
     const navigate = useNavigate();
     const goToLandingPage = () => navigate('/');
     const goToMe = () => navigate('/me');
@@ -17,7 +21,7 @@ export const Navbar = () => {
                     <div className='weeev-logo-container button-states-10 transition-10' onClick={goToLandingPage}>
                         <img className='weeev-logo' src={weeevLogo} />
                     </div>
-                    <Button label='Minhas ideias' variant='secondary' size='small' onClick={goToMe} />
+                    {user ? <Button label='Minhas ideias' variant='secondary' size='small' onClick={goToMe} /> : null}
                 </div>
             </nav>
 

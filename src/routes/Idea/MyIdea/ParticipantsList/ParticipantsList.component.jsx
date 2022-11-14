@@ -9,7 +9,7 @@ export const ParticipantsList = ({ data }) => {
     const [ cards, setCards ] = useState([]);
 
     useEffect(() => {
-        const cardsToSet = data.map(participant => <ParticipantCard key={participant} />);
+        const cardsToSet = data.map(participant => <ParticipantCard key={participant.id} participant={participant} />);
         setCards(cardsToSet);
     }, []);
 

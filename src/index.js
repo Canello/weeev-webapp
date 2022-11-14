@@ -9,6 +9,7 @@ import App from './App';
 import { UserTokenProvider } from './contexts/UserToken.context';
 import { UserProvider } from './contexts/User.context';
 import { MyIdeasProvider } from './contexts/MyIdeas.context';
+import { NotificationsProvider } from './contexts/Notifications.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,9 +17,11 @@ root.render(
     <UserTokenProvider>
     <UserProvider>
     <MyIdeasProvider>
+    <NotificationsProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
+    </NotificationsProvider>
     </MyIdeasProvider>
     </UserProvider>
     </UserTokenProvider>

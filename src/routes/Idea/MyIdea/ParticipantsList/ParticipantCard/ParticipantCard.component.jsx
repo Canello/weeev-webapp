@@ -1,26 +1,19 @@
 import './ParticipantCard.scss';
 
-import { IconButton } from '../../../../../components/IconButton/IconButton.component';
 import { Spacer } from '../../../../../components/Spacer/Spacer.component';
-import CopyGradient from '../../../../../assets/icons/copy-gradient.svg';
+import { ShareableLink } from '../../../../../components/ShareableLink/ShareableLink.component';
+import AltWhatsappNeutral30 from '../../../../../assets/icons/alt-whatsapp-neutral-30.svg';
 
-export const ParticipantCard = () => {
+export const ParticipantCard = ({ participant }) => {
     return (
         <div className='ParticipantCard'>
-            <h5 className='font-headline-mobile-5 color-n-20'>Nome do Participante</h5>
-            <div className='flex'>
-                <div className='info-container'>
-                    <IconButton variant='primary-solo' icon={CopyGradient} />
-                    <Spacer dir='x' size='xs' />
-                    <span className='font-link-4 color-i-5'>@instagram</span>
-                </div>
-                <Spacer dir='x' size='xs' />
-                <div className='info-container'>
-                    <IconButton variant='primary-solo' icon={CopyGradient} />
-                    <Spacer dir='x' size='xs' />
-                    <span className='font-link-4 color-i-5'>11 91234 5678</span>
-                </div>
-            </div>
+            <h5 className='font-headline-mobile-5 color-n-20'>{participant.full_name}</h5>
+            <Spacer dir='y' size='xs' />
+            <ShareableLink variant='secondary' link={participant.phone_number}>
+                <img className='whatsapp-icon' src={AltWhatsappNeutral30} />
+                <Spacer dir='x' size='s' />
+                <span className='font-body-2 color-n-30'>{participant.phone_number}</span>
+            </ShareableLink>
         </div>
     );
 }

@@ -5,21 +5,37 @@ import { Spacer } from "../../../components/Spacer/Spacer.component";
 import { ParticipantsList } from './ParticipantsList/ParticipantsList.component';
 import { NobodyHerePlaceholder } from './NobodyHerePlaceholder/NobodyHerePlaceholder.component';
 
-const participants = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+const _makeTitle = (count) =>{
+    switch (count) {
+        case 0:
+            return 'Ninguém, por enquanto...';
+        case 1:
+            return `${count} também quer`;
+        default:
+            return `${count} também querem`; 
+    }
+}
 
-export const MyIdea = () => {
+export const MyIdea = ({ idea, participants }) => {
+    const createdAt = new Date(idea.created_at);
+    const date = createdAt.getDate() + '/' + (createdAt.getMonth() + 1) + '/' + createdAt.getFullYear();
+    const link = window.location.href;
+    const participantsListTitle = _makeTitle(idea.participants_count);
+
     return (
         <div className='MyIdea page'>
             <Spacer dir='y' size='m' />
-            <h1 className='font-headline-mobile-4 color-n-30' >Eu quero jogar queimada</h1>
+            <h1 className='font-headline-mobile-4 color-n-20' >{idea.title}</h1>
             <Spacer dir='y' size='xs' />
-            <h3 className='font-caption-1 color-n-40' >Criada em 20/11/2022</h3>
+            <h3 className='font-body-2 color-n-30' >Criada em {date}</h3>
             <Spacer dir='y' size='m' />
             <h2 className='font-body-2 color-n-30' >Link para compartilhar a ideia:</h2>
             <Spacer dir='y' size='xs' />
-            <ShareableLink />
+            <ShareableLink link={link}>
+                <span className='font-body-2 color-i-5 word-break'>{link}</span>
+            </ShareableLink>
             <Spacer dir='y' size='xl' />
-            <h4 className='font-headline-mobile-4 color-n-20'>20 também querem</h4>
+            <h4 className='font-headline-mobile-4 color-n-20'>{participantsListTitle}</h4>
             <Spacer dir='y' size='xs' />
             <div className='horizontal-line' />
             <Spacer dir='y' size='m' />

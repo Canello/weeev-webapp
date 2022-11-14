@@ -1,0 +1,14 @@
+.Settings .horizontal-line {
+    border-bottom: 1px solid var(--c-neutral-60);
+    flex: 1;
+}
+
+.Settings .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Settings .or-container {
+    width: 56px;
+}

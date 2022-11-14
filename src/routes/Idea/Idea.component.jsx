@@ -11,15 +11,17 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner.c
 import { Spacer } from "../../components/Spacer/Spacer.component";
 
 export const Idea = () => {
-    const { userToken } = useContext(UserTokenContext);
     const ideaId = window.location.pathname.split('/')[2];
+    const { userToken } = useContext(UserTokenContext);
     const [ requestIdea, idea, isFetchingIdea, ideaError ] = useFetch(null, true);
-    const [ requestParticipants, participants, isFetchingParticipants, participantsError ] = useFetch(null, true);
-
+    const [ requestParticipants, participants, isFetchingParticipants, participantsError ] = useFetch([], true);
+    
     useEffect(() => {
-        requestIdea(getIdea(userToken, ideaId));
-        requestParticipants(getParticipants(userToken, ideaId));
+        requestIdea(getIdea(userToken, ideaId), null, (res) => {
+            if (res.is_creator) requestParticipants(getParticipants(userToken, ideaId));
+        });
     }, []);
+    
     
     if (isFetchingIdea) return (
         <div className='Idea loading-spinner-container'>
@@ -28,5 +30,5 @@ export const Idea = () => {
         </div>
     );
     if (!idea) return <h1>Ideia não encontrada</h1>;
-    return idea.is_creator ? <MyIdea /> : <IdeaForms />;
+    return idea.is_creator ? <MyIdea idea={idea} participants={participants} /> : <IdeaForms idea={idea} />;
 }

@@ -45,5 +45,4 @@ function App() {
 
 export default App;
 
-// !!!!!!!!!! PRÓXIMO PASSO: CONECTAR FRONT-END COM BACK-END !!!!!!!!!
-// !!!!! CONECTANDO IDEA ROUTE !!!!!!!!
+// !!!!!!!!!! PRÓXIMO PASSO: INPUT VALIDATION E PAGINATION !!!!!!!!!

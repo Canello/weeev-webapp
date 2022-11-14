@@ -1,15 +1,37 @@
+import { useState } from 'react';
+
 import './ShareableLink.scss';
 
 import CopyGradient from '../../assets/icons/copy-gradient.svg';
+import CopyNeutral50 from '../../assets/icons/copy-neutral-50.svg';
 
-export const ShareableLink = () => {
+const ICON = {
+    'primary': CopyGradient,
+    'secondary': CopyNeutral50
+};
+
+export const ShareableLink = ({ variant='primary', link, children }) => {
+    const [ isTipShowing, setIsTipShowing ] = useState(false);
+    const showTip = () => {
+        setIsTipShowing(true);
+        setTimeout(() => setIsTipShowing(false), 1500);
+    }
+    const copyToClipboard = () => navigator.clipboard.writeText(link);
+    const onCopy = () => {
+        copyToClipboard();
+        showTip();
+    }
+
     return (
         <div className='ShareableLink'>
-            <div className='copy-container'>
-                <img src={CopyGradient} />
-            </div>
             <div className='link-container'>
-                <span className='font-link-4 color-i-5 word-break'>https://weeev.cc/9712he193hr3asdsdadadajsdadjasiojdadajsdau</span>
+                {children}
+            </div>
+            <div className='copy-container button-states-10' onClick={onCopy}>
+                <img src={ICON[variant]} />
+            </div>
+            <div className={`tip bg-n-20 transition-10 ${isTipShowing ? '' : 'hide'}`}>
+                <span className='font-caption-1 color-n-white'>Copiado!</span>
             </div>
         </div>
     );

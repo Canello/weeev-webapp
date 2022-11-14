@@ -7,9 +7,11 @@ import { Button } from '../../components/Button/Button.component';
 import { useFetch } from '../../hooks/useFetch.hook';
 import { UserTokenContext } from '../../contexts/UserToken.context';
 import { createIdea } from '../../services/ideas.services';
+import { MyIdeasContext } from '../../contexts/MyIdeas.context';
 
 export const CreateIdea = () => {
     const { userToken } = useContext(UserTokenContext);
+    const { updateMyIdeas } = useContext(MyIdeasContext);
     const navigate = useNavigate();
     const goToIdea = (ideaId) => navigate('/idea/' + ideaId);
     
@@ -17,7 +19,10 @@ export const CreateIdea = () => {
     const [ requestCreateIdea, idea, isFetchingIdea, createIdeaError ] = useFetch();
 
     const onSubmit = () => {
-        requestCreateIdea(createIdea(userToken, title), null, (res) => goToIdea(res.id));
+        requestCreateIdea(createIdea(userToken, title), null, (res) => {
+            updateMyIdeas();
+            goToIdea(res.id);
+        });
     }
 
     return (

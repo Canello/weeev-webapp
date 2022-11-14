@@ -10,13 +10,20 @@ export const MyIdeasProvider = ({children}) => {
     const [ myIdeas, setMyIdeas ] = useState([]);
     const { userToken } = useContext(UserTokenContext);
     const [ requestMyIdeas ] = useFetch();
-    useEffect(() => {
+    const updateMyIdeas = () => {
         if (userToken) requestMyIdeas(getMyIdeas(userToken), null, (res) => setMyIdeas(res));
+    }
+
+    useEffect(() => {
+        updateMyIdeas();
     }, [userToken]);
+
     const value = {
         myIdeas,
-        setMyIdeas
+        setMyIdeas,
+        updateMyIdeas
     };
+
     return (
         <MyIdeasContext.Provider value={value}>
             {children}

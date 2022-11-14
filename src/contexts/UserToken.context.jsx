@@ -6,6 +6,8 @@ export const UserTokenProvider = ({ children }) => {
     const [ userToken, setUserToken ] = useState(null);
     const [ triedToGetUserTokenFromLocalStorage, setTriedToGetUserTokenFromLocalStorage ] = useState(false);
 
+    const clearUserToken = () => localStorage.removeItem('userToken');
+
     useEffect(() => {
         const currentUserToken = window.localStorage.getItem('userToken');
         if (currentUserToken) setUserToken(currentUserToken);
@@ -21,7 +23,8 @@ export const UserTokenProvider = ({ children }) => {
     const value = {
         userToken,
         setUserToken,
-        isLoadingUserToken
+        isLoadingUserToken,
+        clearUserToken
     }
 
     return (

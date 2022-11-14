@@ -23,7 +23,7 @@ export const StepByStep = () => {
                     <img src={AltWhatsappWhite} />
                 </div>
                 <Spacer dir='x' size='m'/>
-                <h2 className='font-body-2 color-n-40'>Quem gostar da ideia passa o WhatsApp e o Instagram</h2>
+                <h2 className='font-body-2 color-n-40'>Quem gostar da ideia passa o WhatsApp</h2>
             </div>
             <img className='margin-left' src={AltArrowPrimary30} />
             <div className='step'>
