@@ -18,7 +18,7 @@ export const Input = ({ className='', containerClassName='', setValue, label, he
             }
             {
                 helperText ?
-                <span className={'font-footer-1 color-n-50'}>{helperText}</span>
+                <span className={'font-caption-1 color-n-30'}>{helperText}</span>
                 :null
             }
         </div>

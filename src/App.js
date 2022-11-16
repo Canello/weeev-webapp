@@ -12,8 +12,18 @@ import { Idea } from './routes/Idea/Idea.component';
 import { UserTokenContext } from "./contexts/UserToken.context";
 import { LoadingSpinner } from "./components/LoadingSpinner/LoadingSpinner.component";
 import { UserContext } from "./contexts/User.context";
+import { Spacer } from "./components/Spacer/Spacer.component";
 
 import weeevIcon from './assets/images/weeev-icon.png';
+
+const IdeaNotFound = () => {
+  return (
+    <>
+      <Spacer dir='y' size='xxl' />
+      <h1 className='idea-not-found font-headline-mobile-1 color-n-20'>Ideia não encontrada.</h1>
+    </>
+  );
+}
 
 function App() {
   const { isLoadingUserToken } = useContext(UserTokenContext);
@@ -36,7 +46,7 @@ function App() {
             <Route path='create-idea/' element={<CreateIdea />} />
             <Route path='settings/' element={<Settings />} />
             <Route path='idea/:ideaId' element={<Idea />} />
-            <Route path='idea/' element={<h1>nothing here</h1>} />
+            <Route path='idea/' element={<IdeaNotFound />} />
           </Route>
         </Routes>
     </div>
@@ -45,4 +55,4 @@ function App() {
 
 export default App;
 
-// !!!!!!!!!! PRÓXIMO PASSO: INPUT VALIDATION E PAGINATION !!!!!!!!!
+// !!!!!!!!!! PRÓXIMO PASSO: PAGINATION !!!!!!!!!

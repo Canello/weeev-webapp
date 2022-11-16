@@ -1,8 +1,8 @@
 import { apiAddress } from "../utils/data/apiAddress";
 import { makeAuthorization } from "../utils/functions/makeAuthorization";
 
-export const getMyIdeas = (userToken) => async () => {
-    const res = await fetch(apiAddress + 'ideas/', {
+export const getMyIdeas = (userToken, page) => async () => {
+    const res = await fetch(apiAddress + 'ideas/?page=' + page, {
         method: 'GET',
         headers: {
             Authorization: makeAuthorization(userToken)
@@ -25,8 +25,8 @@ export const getIdea = (userToken, ideaId) => async () => {
     throw Error(resJson.data.error);
 }
 
-export const getParticipants = (userToken, ideaId) => async () => {
-    const res = await fetch(apiAddress + 'ideas/' + ideaId + '/participants/', {
+export const getParticipants = (userToken, ideaId, page) => async () => {
+    const res = await fetch(apiAddress + 'ideas/' + ideaId + '/participants/?page=' + page, {
         method: 'GET',
         headers: {
             Authorization: makeAuthorization(userToken)

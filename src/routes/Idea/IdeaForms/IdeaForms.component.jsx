@@ -16,11 +16,36 @@ export const IdeaForms = ({ idea }) => {
     const goToLandingPage = () => navigate('/');
 
     const [ fullName, setFullName ] = useState('');
+    const [ fullNameError, setFullNameError ] = useState(false);
+    const [ fullNameWarning, setFullNameWarning ] = useState('');
+    const setFullNameAndRemoveError = (t) => {
+        setFullName(t);
+        setFullNameError(false);
+    }
+
     const [ instagram, setInstagram ] = useState('');
+
     const [ phoneNumber, setPhoneNumber ] = useState('');
+    const [ phoneNumberError, setPhoneNumberError ] = useState(false);
+    const [ phoneNumberWarning , setPhoneNumberWarning ] = useState('');
+    const setPhoneNumberAndRemoveError = (t) => {
+        setPhoneNumber(t);
+        setPhoneNumberError(false);
+    }
+    
     const [ requestParticipation, result, isFetchingParticipation, participationError ] = useFetch();
 
     const onSubmit = () => {
+        if (fullName.length < 1) {
+            setFullNameError(true);
+            setFullNameWarning('Você não tem nome?');
+            return;
+        }
+        if (phoneNumber.length < 1) {
+            setPhoneNumberError(true);
+            setPhoneNumberWarning('Como vão te chamar pro rolê sem seu número?');
+            return;
+        }
         requestParticipation(participate(idea.id, fullName, instagram, phoneNumber), null, (res) => {
             participation.setCreatorFirstName(creatorFirstName);
             participation.show();
@@ -35,11 +60,11 @@ export const IdeaForms = ({ idea }) => {
             <Spacer dir='y' size='xs' />
             <p className='font-body-2 color-n-30'>Se ele(a) decidir agitar o rolê, poderá criar um grupo e te adicionar.<br/>Apenas {creatorFirstName} pode ver sua resposta.</p>
             <Spacer dir='y' size='xl' />
-            <Input value={fullName} setValue={setFullName} label='Meu nome' />
+            <Input value={fullName} setValue={setFullNameAndRemoveError} label='Meu nome' maxLength={70} error={fullNameError} helperText={fullNameWarning} />
             <Spacer dir='y' size='m' />
             {/* <Input value={instagram} setValue={setInstagram} label='@meu_instagram' />
             <Spacer dir='y' size='m' /> */}
-            <Input value={phoneNumber} setValue={setPhoneNumber} label='Meu número (WhatsApp)' />
+            <Input value={phoneNumber} setValue={setPhoneNumberAndRemoveError} label='Meu número (WhatsApp)' maxLength={40} error={phoneNumberError} helperText={phoneNumberWarning} />
             <Spacer dir='y' size='m' />
             <Button label='Também quero' variant='primary' size='large' onClick={onSubmit} />
             <Spacer dir='y' size='m' />
