@@ -11,7 +11,7 @@ export const ParticipantsList = ({ data }) => {
     useEffect(() => {
         const cardsToSet = data.map(participant => <ParticipantCard key={participant.id} participant={participant} />);
         setCards(cardsToSet);
-    }, []);
+    }, [data]);
 
     return (
         <div className='ParticipantsList'>

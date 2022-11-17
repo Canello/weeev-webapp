@@ -5,14 +5,14 @@ import { Spacer } from "../../../components/Spacer/Spacer.component";
 import { ParticipantsList } from './ParticipantsList/ParticipantsList.component';
 import { NobodyHerePlaceholder } from './NobodyHerePlaceholder/NobodyHerePlaceholder.component';
 
-const _makeTitle = (count) =>{
-    switch (count) {
+const _makeTitle = (participantsCount) =>{
+    switch (participantsCount) {
         case 0:
             return 'Ninguém, por enquanto...';
         case 1:
-            return `${count} também quer`;
+            return `${participantsCount} também quer`;
         default:
-            return `${count} também querem`; 
+            return `${participantsCount} também querem`; 
     }
 }
 
