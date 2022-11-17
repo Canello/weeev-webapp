@@ -9,7 +9,7 @@ export const getMyIdeas = (userToken, page) => async () => {
         }
     });
     const resJson = await res.json();
-    if (resJson.status === 'ok') return resJson.data.ideas;
+    if (resJson.status === 'ok') return resJson.data;
     throw Error(resJson.data.error);
 }
 

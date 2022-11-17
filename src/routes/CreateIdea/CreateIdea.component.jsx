@@ -32,7 +32,7 @@ export const CreateIdea = () => {
             return;
         }
         requestCreateIdea(createIdea(userToken, title), null, (res) => {
-            updateMyIdeas();
+            updateMyIdeas(0);
             goToIdea(res.id);
         });
     }

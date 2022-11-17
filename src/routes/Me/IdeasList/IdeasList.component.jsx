@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { IdeaCard } from './IdeaCard/IdeaCard.component';
+import { Spacer } from '../../../components/Spacer/Spacer.component';
+import { Pagination } from './Pagination/Pagination.component';
 
 export const IdeasList = ({ data }) => {
     const [ cards, setCards ] = useState();
@@ -13,6 +15,8 @@ export const IdeasList = ({ data }) => {
     return (
         <div className='IdeasList'>
             {cards}
+            <Spacer dir='y' size='xl' />
+            <Pagination />
         </div>
     );
 }

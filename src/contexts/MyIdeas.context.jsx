@@ -7,21 +7,33 @@ import { getMyIdeas } from "../services/ideas.services";
 export const MyIdeasContext = createContext([]);
 
 export const MyIdeasProvider = ({children}) => {
-    const [ myIdeas, setMyIdeas ] = useState([]);
     const { userToken } = useContext(UserTokenContext);
+
+    const [ myIdeas, setMyIdeas ] = useState([]);
+    const [ totalPages, setTotalPages ] = useState(1);
+    const [ currentPage, setCurrentPage ] = useState(1);
+
     const [ requestMyIdeas ] = useFetch();
-    const updateMyIdeas = () => {
-        if (userToken) requestMyIdeas(getMyIdeas(userToken), null, (res) => setMyIdeas(res));
+
+    const updateMyIdeas = (page) => {
+        // page - 1 porque no back-end começa em 0 e no front-end, em 1.
+        if (userToken) requestMyIdeas(getMyIdeas(userToken, page - 1), null, (res) => {
+            setMyIdeas(res.ideas);
+            setTotalPages(res.total_pages);
+            setCurrentPage(page);
+        });
     }
 
     useEffect(() => {
-        updateMyIdeas();
+        updateMyIdeas(1);
     }, [userToken]);
 
     const value = {
         myIdeas,
         setMyIdeas,
-        updateMyIdeas
+        updateMyIdeas,
+        currentPage,
+        totalPages
     };
 
     return (
