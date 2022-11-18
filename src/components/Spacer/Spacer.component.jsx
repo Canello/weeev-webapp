@@ -1,4 +1,4 @@
-import './Spacer.scss';
+import './Spacer.styles.scss';
 
 // dirs -> x, y
 // sizes -> xxs, xs, s, m, l, xl, xxl

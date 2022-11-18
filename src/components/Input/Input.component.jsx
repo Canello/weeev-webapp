@@ -1,4 +1,4 @@
-import './Input.scss';
+import './Input.styles.scss';
 
 export const Input = ({ className='', containerClassName='', setValue, label, helperText, error=false, ...otherProps }) => {
     if (!otherProps.value === undefined) console.log('Missing "value" on Input');

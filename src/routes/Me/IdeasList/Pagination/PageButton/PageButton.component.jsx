@@ -1,6 +1,7 @@
-import './PageButton.scss';
-
 import { useContext } from "react";
+
+import './PageButton.styles.scss';
+
 import { Spacer } from "../../../../../components/Spacer/Spacer.component";
 import { MyIdeasContext } from "../../../../../contexts/MyIdeas.context";
 

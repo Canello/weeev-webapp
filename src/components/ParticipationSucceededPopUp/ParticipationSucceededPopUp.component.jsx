@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import './ParticipationSucceededPopUp.scss';
+import './ParticipationSucceededPopUp.styles.scss';
 
 import { PopUp } from '../PopUp/PopUp.component';
 import { Spacer } from '../Spacer/Spacer.component';

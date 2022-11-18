@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import './GoogleButton.scss';
+import './GoogleButton.styles.scss';
 
 import { Button } from "../Button/Button.component";
 import { Spacer } from '../Spacer/Spacer.component';

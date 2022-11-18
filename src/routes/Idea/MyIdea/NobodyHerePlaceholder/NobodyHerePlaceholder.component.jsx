@@ -1,4 +1,4 @@
-import './NobodyHerePlaceholder.scss';
+import './NobodyHerePlaceholder.styles.scss';
 
 import { Spacer } from '../../../../components/Spacer/Spacer.component';
 import NobodyHere from '../../../../assets/images/nobody-here.png';

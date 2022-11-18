@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
-import './Navbar.scss';
+import './Navbar.styles.scss';
 
 import { Button } from '../../components/Button/Button.component';
 import { UserContext } from '../../contexts/User.context';

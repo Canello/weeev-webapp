@@ -24,6 +24,8 @@ export const MyIdeasProvider = ({children}) => {
         });
     }
 
+    const resetPage = () => setCurrentPage(1);
+
     useEffect(() => {
         updateMyIdeas(1);
     }, [userToken]);
@@ -33,6 +35,7 @@ export const MyIdeasProvider = ({children}) => {
         setMyIdeas,
         updateMyIdeas,
         currentPage,
+        resetPage,
         totalPages
     };
 

@@ -1,4 +1,4 @@
-import './Button.scss';
+import './Button.styles.scss';
 
 const FONT_COLOR = {
     primary: 'color-n-white',

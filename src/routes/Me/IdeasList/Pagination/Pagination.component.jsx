@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 
-import './Pagination.scss';
+import './Pagination.styles.scss';
 
 import { MyIdeasContext } from '../../../../contexts/MyIdeas.context';
 import { PageButton } from './PageButton/PageButton.component';

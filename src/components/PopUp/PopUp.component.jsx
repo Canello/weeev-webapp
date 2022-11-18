@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 
-import './PopUp.scss';
+import './PopUp.styles.scss';
 
 export const PopUp = ({ className, isShowing, onClose, children }) => {
     const hideClass = isShowing ? '' : 'hide';

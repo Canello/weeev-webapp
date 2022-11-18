@@ -1,4 +1,4 @@
-import './LoginPopUp.scss';
+import './LoginPopUp.styles.scss';
 
 import { PopUp } from '../PopUp/PopUp.component';
 import { Spacer } from '../Spacer/Spacer.component';

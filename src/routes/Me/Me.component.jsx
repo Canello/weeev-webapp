@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './Me.scss';
+import './Me.styles.scss';
 
 import { Spacer } from '../../components/Spacer/Spacer.component';
 import { Button } from '../../components/Button/Button.component';

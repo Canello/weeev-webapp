@@ -1,6 +1,7 @@
-import './NothingHerePlaceholder.scss';
+import './NothingHerePlaceholder.styles.scss';
 
 import { Spacer } from "../../../components/Spacer/Spacer.component";
+
 import NothingHere from '../../../assets/images/nothing-here.png';
 
 export const NothingHerePlaceholder = () => {

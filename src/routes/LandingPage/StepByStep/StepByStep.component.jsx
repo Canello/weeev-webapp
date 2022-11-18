@@ -1,4 +1,4 @@
-import './StepByStep.scss';
+import './StepByStep.styles.scss';
 
 import { Spacer } from '../../../components/Spacer/Spacer.component';
 

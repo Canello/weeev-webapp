@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import './IdeaCard.scss';
+import './IdeaCard.styles.scss';
 
 import { Spacer } from '../../../../components/Spacer/Spacer.component';
 

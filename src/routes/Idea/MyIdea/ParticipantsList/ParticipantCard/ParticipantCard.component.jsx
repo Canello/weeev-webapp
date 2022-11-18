@@ -1,4 +1,4 @@
-import './ParticipantCard.scss';
+import './ParticipantCard.styles.scss';
 
 import { Spacer } from '../../../../../components/Spacer/Spacer.component';
 import { ShareableLink } from '../../../../../components/ShareableLink/ShareableLink.component';

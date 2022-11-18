@@ -1,4 +1,4 @@
-import './MyIdea.scss';
+import './MyIdea.styles.scss';
 
 import { ShareableLink } from "../../../components/ShareableLink/ShareableLink.component";
 import { Spacer } from "../../../components/Spacer/Spacer.component";

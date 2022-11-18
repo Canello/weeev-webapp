@@ -5,7 +5,6 @@ import { Button } from '../../../components/Button/Button.component';
 import { Input } from '../../../components/Input/Input.component';
 import { Spacer } from '../../../components/Spacer/Spacer.component';
 import { NotificationsContext } from '../../../contexts/Notifications.context';
-import { UserContext } from '../../../contexts/User.context';
 import { useFetch } from '../../../hooks/useFetch.hook';
 import { participate } from '../../../services/ideas.services';
 

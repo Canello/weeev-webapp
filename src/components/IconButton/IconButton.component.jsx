@@ -1,4 +1,4 @@
-import './IconButton.scss';
+import './IconButton.styles.scss';
 
 const CONTAINER = {
     'primary': 'gradient-p-10',

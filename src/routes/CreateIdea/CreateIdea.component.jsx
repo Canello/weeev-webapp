@@ -11,7 +11,7 @@ import { MyIdeasContext } from '../../contexts/MyIdeas.context';
 
 export const CreateIdea = () => {
     const { userToken } = useContext(UserTokenContext);
-    const { updateMyIdeas } = useContext(MyIdeasContext);
+    const { updateMyIdeas, resetPage } = useContext(MyIdeasContext);
     const navigate = useNavigate();
     const goToIdea = (ideaId) => navigate('/idea/' + ideaId);
     
@@ -32,7 +32,8 @@ export const CreateIdea = () => {
             return;
         }
         requestCreateIdea(createIdea(userToken, title), null, (res) => {
-            updateMyIdeas(0);
+            updateMyIdeas(1);
+            resetPage();
             goToIdea(res.id);
         });
     }

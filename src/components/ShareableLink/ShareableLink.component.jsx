@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import './ShareableLink.scss';
+import './ShareableLink.styles.scss';
 
 import CopyGradient from '../../assets/icons/copy-gradient.svg';
 import CopyNeutral50 from '../../assets/icons/copy-neutral-50.svg';

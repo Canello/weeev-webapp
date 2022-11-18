@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 
-import './Idea.scss';
+import './Idea.styles.scss';
 
 import { IdeaForms } from "./IdeaForms/IdeaForms.component";
 import { MyIdea } from "./MyIdea/MyIdea.component";

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import './LoadingSpinner.scss';
+import './LoadingSpinner.styles.scss';
 
 export const LoadingSpinner = ({ size, borderWidth, ...props }) => {
     const { className, ...propsExceptClassName } = props;

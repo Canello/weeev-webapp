@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-import './ParticipantsList.scss';
+import './ParticipantsList.styles.scss';
 
 import { ParticipantCard } from './ParticipantCard/ParticipantCard.component';
 
