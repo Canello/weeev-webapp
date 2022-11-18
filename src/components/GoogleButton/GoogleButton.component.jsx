@@ -12,7 +12,6 @@ import { UserTokenContext } from "../../contexts/UserToken.context";
 
 import GoogleLogo from '../../assets/images/google-logo.svg';
 
-
 export const GoogleButton = () => {
     const id = 'google-login' + getNewId();
     const googleLogin = useRef();
@@ -29,12 +28,13 @@ export const GoogleButton = () => {
         });
     }
 
+    // Dando erro ao fazer build do react por não ter acesso ao objeto google.
     const initializeGoogleLogin = () => {
-        google.accounts.id.initialize({
+        window.google.accounts.id.initialize({
             client_id: "890599212995-otdqmbdccnooe5ijgjvl3cbneeul4j52.apps.googleusercontent.com",
             callback: handleCredentialResponse
         });
-        google.accounts.id.renderButton(
+        window.google.accounts.id.renderButton(
             document.getElementById(id),
             {
                 theme: "outline",
