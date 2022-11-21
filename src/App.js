@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import './App.scss';
@@ -13,6 +13,7 @@ import { UserTokenContext } from "./contexts/UserToken.context";
 import { LoadingSpinner } from "./components/LoadingSpinner/LoadingSpinner.component";
 import { UserContext } from "./contexts/User.context";
 import { Spacer } from "./components/Spacer/Spacer.component";
+import { isDevMode } from "./utils/data/mode";
 
 import weeevIcon from './assets/images/weeev-icon.png';
 
@@ -28,6 +29,14 @@ const IdeaNotFound = () => {
 function App() {
   const { isLoadingUserToken } = useContext(UserTokenContext);
   const { isFetchingUser } = useContext(UserContext);
+
+  // Redirecionar http para https.
+  useEffect(() => {
+    if (isDevMode) return;
+    if (window.location.protocol !== 'https:') {
+      window.location.replace('https://weeev.fun' + window.location.pathname);
+    }
+  }, []);
 
   if (isLoadingUserToken || isFetchingUser) {
     return (

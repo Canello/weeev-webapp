@@ -28,7 +28,6 @@ export const GoogleButton = () => {
         });
     }
 
-    // Dando erro ao fazer build do react por não ter acesso ao objeto google.
     const initializeGoogleLogin = () => {
         window.google.accounts.id.initialize({
             client_id: "890599212995-otdqmbdccnooe5ijgjvl3cbneeul4j52.apps.googleusercontent.com",
