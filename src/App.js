@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import './App.scss';
@@ -29,16 +29,19 @@ const IdeaNotFound = () => {
 function App() {
   const { isLoadingUserToken } = useContext(UserTokenContext);
   const { isFetchingUser } = useContext(UserContext);
+  const [ isRedirectingToHttps, setIsRedirectingToHttps ] = useState(isDevMode ? false : true);
 
   // Redirecionar http para https.
   useEffect(() => {
     if (isDevMode) return;
     if (window.location.protocol !== 'https:') {
       window.location.replace('https://weeev.fun' + window.location.pathname);
+    } else {
+      setIsRedirectingToHttps(false);
     }
   }, []);
 
-  if (isLoadingUserToken || isFetchingUser) {
+  if (isRedirectingToHttps || isLoadingUserToken || isFetchingUser) {
     return (
       <div className='InitialLoadingScreen bg-b-white'>
         <LoadingSpinner size='120px' borderWidth='3px' />
