@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import './IdeaCard.styles.scss';
 
 import { Spacer } from '../../../../components/Spacer/Spacer.component';
+import { makeParticipantsCount } from '../../../../utils/functions/makeParticipantsCount';
 
 export const IdeaCard = ({ idea }) => {
     const navigate = useNavigate();
     const goToIdea = () => navigate('/idea/' + idea.id);
     const createdAt = new Date(idea.created_at);
+    const participantsCount = makeParticipantsCount(idea.participants_count);
 
     return (
         <div className='IdeaCard flex' onClick={goToIdea}>
@@ -18,7 +20,7 @@ export const IdeaCard = ({ idea }) => {
             <Spacer dir='x' size='m' />
             <div className='container'>
                 <span className='font-headline-mobile-5 color-n-20'>{idea.title}</span>
-                <span className='font-body-2 color-n-40'>{idea.participants_count} também querem</span>
+                <span className='font-body-2 color-n-40'>{participantsCount}</span>
             </div>
         </div>
     );

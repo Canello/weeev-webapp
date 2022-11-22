@@ -4,23 +4,13 @@ import { ShareableLink } from "../../../components/ShareableLink/ShareableLink.c
 import { Spacer } from "../../../components/Spacer/Spacer.component";
 import { ParticipantsList } from './ParticipantsList/ParticipantsList.component';
 import { NobodyHerePlaceholder } from './NobodyHerePlaceholder/NobodyHerePlaceholder.component';
-
-const _makeTitle = (participantsCount) =>{
-    switch (participantsCount) {
-        case 0:
-            return 'Ninguém, por enquanto...';
-        case 1:
-            return `${participantsCount} também quer`;
-        default:
-            return `${participantsCount} também querem`; 
-    }
-}
+import { makeParticipantsCount } from '../../../utils/functions/makeParticipantsCount';
 
 export const MyIdea = ({ idea, participants }) => {
     const createdAt = new Date(idea.created_at);
     const date = createdAt.getDate() + '/' + (createdAt.getMonth() + 1) + '/' + createdAt.getFullYear();
     const link = window.location.href;
-    const participantsListTitle = _makeTitle(idea.participants_count);
+    const participantsListTitle = makeParticipantsCount(idea.participants_count);
 
     return (
         <div className='MyIdea page'>
