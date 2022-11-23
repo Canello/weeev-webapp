@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# <p align='center'>weeev<br/>[https://weeev.fun](https://weeev.fun)</p>
+  
+## O que é?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App para compartilhar ideias por link – e reunir amigos sem ter que convidar um por um via DM.
+  
+Como funciona?  
+  
+1. Crie uma ideia:  
+Isso vai ser como um evento, onde as pessoas podem declarar interesse em participar. Mas somente você pode ver os interessados.  
+  
+2. Compartilhe o link:
+Compartilhe o link da sua ideia individualmente ou para todos – nos stories, por exemplo. Quem tiver afim, pode declarar interesse.  
 
-## Available Scripts
+3. Crie um grupo para agitar o rolê:  
+Ao declarar interesse, cada pessoa deixa seu número do WhatsApp. Assim, fica fácil criar um grupo com apenas com quem você se sentir cofortável.  
+  
+## Índice
+  
+ 1. Sitemap  
+ 2. Design system  
+ 3. App React  
+ 4. Estrutura de pastas  
+  
+## Sitemap
 
-In the project directory, you can run:
+![image](https://user-images.githubusercontent.com/66050113/203552587-54fbc8ed-c1f5-4b59-9f8f-beb219a91ab9.png)
 
-### `npm start`
+## Design system
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Elementos básicos usados no design system - espaçamento, cores e tipografia:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image](https://user-images.githubusercontent.com/66050113/203552825-a11aedf5-4776-4cfb-aaae-ccb8bb1a1d45.png)
 
-### `npm test`
+## App React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Rotas do app e contexts:
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/66050113/203553446-1080c5b2-ace8-4254-8f12-5c91204527c3.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Estrutura de pastas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Os elementos dentro da pasta "src" estão organizados como se segue:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+assets/  
+&emsp;images/  
+&emsp;icons/  
+components/  
+&emsp;ExampleComponent/  
+&emsp;&emsp;ExampleComponent.component.jsx  
+&emsp;&emsp;ExampleComponent.styles.scss  
+contexts/  
+hooks/  
+routes/  
+&emsp;ExampleRoute/  
+&emsp;&emsp;ExampleRoute.component.jsx  
+&emsp;&emsp;ExampleRoute.styles.scss  
+&emsp;&emsp;Subcomponent/  
+&emsp;&emsp;&emsp;Subcomponent.component.jsx  
+&emsp;&emsp;&emsp;Subcomponent.styles.scss  
+&emsp;&emsp;&emsp;Subsubcomponent/  
+services/  
+utils/  
+&emsp;data/  
+&emsp;functions/  
