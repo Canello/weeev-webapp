@@ -40,7 +40,7 @@ Rotas do app e contexts:
 
 ## Estrutura de pastas
 
-Os elementos dentro da pasta "src" estão organizados como se segue:
+Os elementos dentro da pasta "src" estão organizados assim:
 
 assets/  
 &emsp;images/  
