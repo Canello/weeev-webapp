@@ -23,6 +23,11 @@
     }
 }
 
+header {
+    display: flex;
+    justify-content: center;
+}
+
 .Navbar {
     @include navbar;
     position: fixed;
